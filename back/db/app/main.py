@@ -1,9 +1,16 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 
 from app import models
 from app.database import Base, engine
-from app.routers import funding_requests, portfolio_engine, tax_engine, tax_inputs, tax_schedules
+from app.routers import (
+    funding_requests,
+    portfolio_engine,
+    tax_engine,
+    tax_inputs,
+    tax_schedules,
+)
 from app.routers.ai import router as ai_router
 from app.routers.portfolios import router as portfolios_router
 from app.routers.profiles import router as profiles_router
@@ -19,6 +26,21 @@ app = FastAPI(
     title="BizMate API",
     description="소상공인 지원사업 및 절세 정보 서비스",
     version="0.1.0",
+)
+
+
+# 프론트엔드 접근 허용
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "https://bizmate-front.vercel.app",
+    ],
+    # Vercel Preview 배포 주소도 허용
+    allow_origin_regex=r"https://bizmate-front-.*\.vercel\.app",
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
