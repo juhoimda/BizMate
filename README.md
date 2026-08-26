@@ -2,6 +2,9 @@
 
 BizMate는 소상공인을 위한 맞춤형 자금 관리 서비스입니다. 사업자 조건을 바탕으로 지원사업, 세무 정보, 자금조달 포트폴리오를 추천합니다.
 
+<img width="864" height="488" alt="스크린샷 2026-08-26 오전 11 09 59" src="https://github.com/user-attachments/assets/0a949005-999f-4589-9ee3-4cff79bb985f" />
+
+
 ## Local Dev Script
 
 프로젝트 루트에서 프론트엔드와 백엔드를 한 번에 실행합니다.
